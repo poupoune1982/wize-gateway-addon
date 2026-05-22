@@ -1,0 +1,2 @@
+# wize-gateway-addon
+wmbusmeters
