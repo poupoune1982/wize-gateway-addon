@@ -1,1 +1,14 @@
+#!/usr/bin/with-contenv bash
+# Initialisation du RTL-SDR
 
+# Désactivation du driver DVB-T
+if [ -f /etc/modprobe.d/no-rtl.conf ]; then
+    echo "Driver RTL-SDR déjà désactivé"
+else
+    echo "blacklist dvb_usb_rtl28xxu" > /etc/modprobe.d/no-rtl.conf
+fi
+
+# Permissions USB
+chmod 666 /dev/bus/usb/*/* || true
+
+echo "Initialisation RTL-SDR terminée"
